@@ -1,6 +1,22 @@
-# Notebook-Single-Page-App-
-Take user stories for a notes app. Use them to build a frontend, single page web app.  
-## 
-You can't use existing web frameworks, libraries or even a test library (e.g. no Angular, React, Jasmine, jQuery etc.).
+*** Note-orious App ***
 
-## Domain model link: https://lucid.app/lucidchart/65392e5d-c701-49ea-9aca-75c0538be745/edit?shared=true&referringApp=slack&page=0_0#
+This is a single page web app built using pure Javascript.
+
+*** User Stories ***
+```
+As a programmer
+I can see a list of my notes, where each note is abbreviated to the first 20 characters
+So I can find the one I want
+As a programmer
+
+I can create a new note
+So I can record something I need to remember
+As a programmer
+
+I can see the full text of an individual note on its own page
+So I can see all the information in the note
+
+As a programmer
+I can use shortcodes like `:fire:` that get converted into emojis like 🔥
+So I can record notes with fun little pictures
+```
