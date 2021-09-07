@@ -15,7 +15,6 @@ notebook.addNote(note1);
 notebook.addNote(note1);
 
 // addNote only accepts a Note instance as an argument
-
 expectNotToThrowError(() => {
   notebook.addNote(note1);
 })

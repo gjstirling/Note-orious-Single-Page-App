@@ -16,21 +16,14 @@ expectToThrowError(() => {
 
 // addText should have max 1000 character
 expectToThrowError(() => { 
-  note.addText("testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"
-  / "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"
-  / "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"
-  / "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"
-  / "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"
-  / "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"
-  / "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"
-  / "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"
-  / "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"
-  / "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"
-  / "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"
-  / "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"
-  / "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"
-  / "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest");
-});
+  note.addText(() => {
+    let testText = ""
+    for (let i = 0; i < 100; i++) {
+      testText += "abcdefghij";
+    }
+    return testText;
+  })
+})
 
 // addText should accept text between 1-1000 characters
 expectNotToThrowError(() => { 
