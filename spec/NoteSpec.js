@@ -21,7 +21,7 @@ expectToThrowError(() => {
   }
 
 expectNotToThrowError(() => { 
-  note.addText(testText
+  note.addText(testText)
 })
 
 // addText should accept text between 1-1000 characters
