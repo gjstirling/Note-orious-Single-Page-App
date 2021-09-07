@@ -19,3 +19,15 @@ function expectToThrowError(actual) {
     errorStatus === true ? "pass: error thrown" : "nobody tosses a dwarf/error"
   );
 }
+
+function expectNotToThrowError(actual) {
+  let errorStatus = false;
+  try {
+    actual();
+  } catch (error) {
+    errorStatus = true;
+  }
+  console.log(
+    errorStatus === false ? "pass: error not thrown" : "fail: error thrown"
+  );
+}
