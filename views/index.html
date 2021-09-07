@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <title> Note-orious </title>
+  </head>
+  
+  <body>
+    <h1> Note-orious </h1>
+      <section>
+
+        <h2>Create a note</h2>
+        <textarea style="resize:none" maxlength="1000" id="notepad" 
+        name="notepad" rows="10" cols="100" placeholder="Scribble here!"></textarea>
+        <br>
+        
+        <button value="submit" id="addNote" action="">Add note</button>
+        
+        <h2>Your notes</h2>
+        <!---can use div and 'notes' id to insert inline notes data from model/interface-->
+        <div id='notes'></div>
+
+      </section>
+      <script src="../src/interfaceTest.js"></script>
+    </body>
+  </html>
