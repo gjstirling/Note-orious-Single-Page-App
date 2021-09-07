@@ -9,7 +9,7 @@ expectToEqual(Array.isArray(notebook.getNotes()), true)
 // starts with an empty array of notes
 expectToEqual(notebook.getNotes().length, 0)
 
-// addNotes
+// add notes
 const note1 = new Note();
 notebook.addNote(note1);
 notebook.addNote(note1);

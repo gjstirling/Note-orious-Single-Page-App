@@ -15,14 +15,13 @@ expectToThrowError(() => {
 });
 
 // addText should have max 1000 character
-expectToThrowError(() => { 
-  note.addText(() => {
-    let testText = ""
-    for (let i = 0; i < 100; i++) {
-      testText += "abcdefghij";
-    }
-    return testText;
-  })
+  let testText = ""
+  for (let i = 0; i < 100; i++) {
+    testText += "abcdefghij";
+  }
+
+expectNotToThrowError(() => { 
+  note.addText(testText
 })
 
 // addText should accept text between 1-1000 characters

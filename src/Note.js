@@ -15,7 +15,7 @@ class Note {
   }
 
   #isCorrectLength(text) {
-    return text.length >= 1 && text.length <= 1000;
+    return (text.length >= 1 && text.length <= 1000);
   }
 
   #isStringType(text) {
