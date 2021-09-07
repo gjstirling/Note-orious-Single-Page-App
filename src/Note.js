@@ -1,24 +1,24 @@
 class Note {
   constructor() {
-    this.text = ""
+    this.text = "";
   }
 
   getText() {
-    return this.text
+    return this.text;
   }
 
   addText(text) {
-    if (this.#minChars(text) && this.#maxChars(text)) {
-     return this.text = text
+    if (this.#isCorrectLength(text) && this.#isStringType(text)) {
+     return this.text = text;
     }
-    throw new Error()
+    throw new Error();
   }
 
-  #minChars(text) {
-    return text.length >= 1
+  #isCorrectLength(text) {
+    return text.length >= 1 && text.length <= 1000;
   }
 
-  #maxChars(text) {
-    return text.length <= 1000
+  #isStringType(text) {
+    return typeof text === 'string'
   }
 }
