@@ -14,12 +14,12 @@ brew upgrade node
 Create a new server:
 ```
 cd Notebook-Single-Page-App
-npm install http-server --save
+npm install --global http-server
 ```
 
 To run server:
 ```
-node node_modules/http-server/bin/http-server
+http-server
 ```
 
 Visit page: 
