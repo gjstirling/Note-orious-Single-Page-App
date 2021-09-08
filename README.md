@@ -1,8 +1,33 @@
-*** Note-orious App ***
+# Note-orious App 
 
 This is a single page web app built using pure Javascript.
 
-*** User Stories ***
+## Installation instructions 
+
+If required:
+```
+brew update 
+brew install node
+brew upgrade node
+```
+
+Create a new server:
+```
+cd Notebook-Single-Page-App
+npm install http-server --save
+```
+
+To run server:
+```
+node node_modules/http-server/bin/http-server
+```
+
+Visit page: 
+```
+open http://127.0.0.1:8080
+```
+
+## User Stories 
 ```
 As a programmer
 I can see a list of my notes, where each note is abbreviated to the first 20 characters
