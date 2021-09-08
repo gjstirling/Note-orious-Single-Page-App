@@ -4,13 +4,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // get notes text in reverse
     // for each note, emojify and truncate
     // for each note, display as list item with id
-
-  document.querySelector("#notesList").innerText = notebook
-    .getNotes()
-    .reverse()
-    .forEach((element, index) => {
-      emojify(element.getText());
-    });
+  const notes = notebook.getNotes().reverse()
+  document.querySelector("#notesList").innerText = 
+    let li = document.createElement('li')
+    li.innerHTML = "testing";
+    document.querySelector('ul').appendChild(li)
+    // notes.forEach((element, index) => {
+    // });
   };
 
   document.querySelector("#addNote").addEventListener("click", () => {
@@ -33,9 +33,9 @@ function emojify(text) {
   })
     .then((response) => response.json())
     .then((text) => {
-      let emojiText = document.createElement('li').innerHTML = text.emojified_text
-      console.log(emojiText);
-      document.querySelector('ul').appendChild('test');
+      let li = document.createElement('li')
+      li.innerHTML = text.emojified_text
+      document.querySelector('ul').appendChild(li)
     })
     .catch((error) => {
       console.error("Error:", error);
