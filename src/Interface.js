@@ -3,14 +3,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const updateNotes = () => {
     // get notes text in reverse
     // for each note, emojify and truncate
-    // for each note, display as list item with id
-  const notes = notebook.getNotes().reverse()
-  document.querySelector("#notesList").innerText = 
-    let li = document.createElement('li')
-    li.innerHTML = "testing";
-    document.querySelector('ul').appendChild(li)
-    // notes.forEach((element, index) => {
-    // });
+    // for each note, display as list item with id]
+
+    const notes = notebook.getNotes().reverse()
+    let li;
+    notes.forEach((element) => {
+      li = document.createElement('li')
+      li.innerHTML = element.getText();
+      document.getElementById("notesList").appendChild(li)
+    });
   };
 
   document.querySelector("#addNote").addEventListener("click", () => {
