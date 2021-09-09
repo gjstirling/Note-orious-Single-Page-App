@@ -7,10 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // for each note, display as list item with id]
     // document.getElementById("notesList").innerHTML = ""
       console.log(document.getElementById("notesList").children)
-    while (document.getElementById("notesList").firstChild) {
-      document.getElementById("notesList").removeChild(document.getElementById("notesList").firstChild);
-  }
-  console.log(document.getElementById("notesList").children)
+      document.querySelector('li').remove()
+      document.getElementById("notesList").innerHTML = ''
     notebook.getNotes().forEach((element, index) => {
       let li;
       emojify(element.getText(), index)
