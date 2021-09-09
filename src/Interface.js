@@ -1,22 +1,38 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const notebook = new Notebook();
+  getStorage = (storage) => {
+    const parsedStorage = JSON.parse(storage);
+    parsedStorage.forEach((element) => {
+      newNote(element.text);
+    });
+  };
+
   updateNotes = () => {
+    const storedNotes = JSON.stringify(notebook.getNotes());
+    window.localStorage.setItem("storedNotes", storedNotes);
+    showNotes();
+  }
+
+  showNotes = () => {
     document.querySelector("#notesList").innerText = notebook.getNotes();
-    // emojify 
-    // truncate 
-    // display note on page
-    // at the moment objects are being returned 
-    console.log(notebook.getNotes());
+  };
+
+  newNote = (text) => {
+    const note = new Note();
+    note.addText(text);
+    notebook.addNote(note);
+  };
+
+  const notebook = new Notebook();
+  const storage = window.localStorage.getItem("storedNotes");
+  if (storage && storage.length) {
+    getStorage(storage);
   }
   updateNotes();
+
   document.querySelector("#addNote").addEventListener("click", () => {
-    const newNote = document.getElementById("notepad").value;
-    const note = new Note();
-    note.addText(newNote);
-    notebook.addNote(note);
+    const text = document.getElementById("notepad").value;
+    newNote(text);
     document.getElementById("notepad").value = "";
-  updateNotes();
+    updateNotes();
   });
 });
-
-
