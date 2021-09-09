@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll('li').forEach(item => { 
       item.addEventListener("click", () => {
         document.getElementById("main").style.display = "none"
-        document.getElementById('textHere').innerHTML = item.innerHTML;
+        document.getElementById('textHere').innerHTML = item.getAttribute('fullText');
         document.getElementById("return").style.display = "block"
         document.getElementById("return").addEventListener("click", () => {
           document.getElementById("main").style.display = "block"
@@ -45,7 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((text) => {
         li = document.createElement('li')
         li.setAttribute('id', index)
-        li.innerHTML = text.emojified_text;
+        li.setAttribute('fullText', text.emojified_text)
+        li.innerHTML = text.emojified_text.substring(0,20);
         // small bug sometimes cuts emojis in half (they are of length 2)
         document.getElementById("notesList").insertBefore(li, document.getElementById("notesList").firstChild);
           openNotes(text.emojified_text)
