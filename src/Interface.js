@@ -1,40 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
   const notebook = new Notebook();
+  document.getElementById("return").style.display = "none"
 
   const updateNotes = () => {
-    document.getElementById("notesList").innerHTML = ''
-    notebook.getNotes().forEach((element, index) => {
-      let li;
-      emojify(element.getText(), index)
-    });
-    // const ascending = (a,b) => a.id - b.id
-    // document.getElementById("notesList").sort(ascending)
-    // console.log(notebook.getNotes())
-    // console.log(document.getElementById("notesList").children)
-    // let sorted;
-    // sorted = Array.from(document.getElementById("notesList").children).sort((a, b) => { return b.getAttribute('id') - a.getAttribute('id') })
-    // document.getElementById("notesList").innerHTML = ""
-    // console.log(document.getElementById("notesList").children)
-    // sorted.forEach(e => document.getElementById("notesList").appendChild(e))
-    // console.log(document.getElementById("notesList").children)
+    let li;
+    let lastNote;
+    lastNote = notebook.getNotes()[notebook.getNotes().length - 1]
+    emojify(lastNote.getText(), notebook.getNotes().indexOf(lastNote))
   };
 
-  // event listeners are being duplicated currently
-  const openNotes = () => {
+  function openNotes() {
     document.querySelectorAll('li').forEach(item => { 
       item.addEventListener("click", () => {
         document.getElementById("main").style.display = "none"
-        document.getElementById('textHere').innerHTML = 
-        notebook.getNotes()[item.getAttribute('id')].getText();
-        let button;
-        button = document.createElement('button')
-        button.setAttribute('id', 'return')
-        button.innerHTML = 'Return to notes'
-        document.getElementById('buttonHere').appendChild(button);
-        button.addEventListener("click", () => {
+        document.getElementById('textHere').innerHTML = item.innerHTML;
+        document.getElementById("return").style.display = "block"
+        document.getElementById("return").addEventListener("click", () => {
           document.getElementById("main").style.display = "block"
           document.getElementById("textHere").innerHTML = ""
-          button.remove()
+          document.getElementById("return").style.display = "none"
         })
       })
     })
@@ -61,10 +45,10 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((text) => {
         li = document.createElement('li')
         li.setAttribute('id', index)
-        li.innerHTML = text.emojified_text.substring(0,20);
+        li.innerHTML = text.emojified_text;
         // small bug sometimes cuts emojis in half (they are of length 2)
-        document.getElementById("notesList").appendChild(li)
-        openNotes()
+        document.getElementById("notesList").insertBefore(li, document.getElementById("notesList").firstChild);
+          openNotes(text.emojified_text)
       })
       .catch((error) => {
         console.error("Error:", error);

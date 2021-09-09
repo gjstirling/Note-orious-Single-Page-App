@@ -3,6 +3,7 @@
 
   <head>
   <title> Note-orious </title>
+  <link rel="stylesheet" href="./public/styles.css">
   </head>
   
   <body>
@@ -17,15 +18,16 @@
         <button value="submit" id="addNote" action="">Add note</button>
         
         <h2>Your notes</h2>
-        <!---can use div and 'notes' id to insert inline notes data from model/interface-->
         <div>
-          <ul id='notesList'></ul>
+          <ul class='notesList' id='notesList'></ul>
         </div>
       </section>
 
       <section id='individualNote'>
         <div><p id='textHere'></p></div>
-        <div id='buttonHere'></div>
+        <div id='buttonHere'>
+          <button id="return" action="">Return to notes</button>
+        </div>
       </section>
 
       <script src="./src/interface.js"></script>
