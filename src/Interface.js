@@ -23,12 +23,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const openNotes = () => {
     document.querySelectorAll('li').forEach(item => { 
       item.addEventListener("click", () => {
-        document.getElementById('main').innerHTML = 
+        document.getElementById("main").style.display = "none"
+        document.getElementById('textHere').innerHTML = 
         notebook.getNotes()[item.getAttribute('id')].getText();
-        document.getElementById('main').appendChild(document.createElement('button'));
-        button.setAttribute()
-        li = document.createElement('li')
-        li.setAttribute('id', 'return')
+        let button;
+        button = document.createElement('button')
+        button.setAttribute('id', 'return')
+        button.innerHTML = 'Return to notes'
+        document.getElementById('buttonHere').appendChild(button);
+        button.addEventListener("click", () => {
+          document.getElementById("main").style.display = "block"
+          document.getElementById("textHere").innerHTML = ""
+          button.remove()
+        })
       })
     })
   };
