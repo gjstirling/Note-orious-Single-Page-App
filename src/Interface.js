@@ -19,6 +19,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // console.log(document.getElementById("notesList").children)
   };
 
+  // event listeners are being duplicated currently
+  const openNotes = () => {
+    document.querySelectorAll('li').forEach(item => { 
+      item.addEventListener("click", () => {
+        console.log(notebook.getNotes()[item.getAttribute('id')].getText());
+      })
+    })
+  };
+
   document.querySelector("#addNote").addEventListener("click", () => {
     const newNote = document.getElementById("notepad").value;
     const note = new Note();
@@ -28,11 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateNotes();
   });
 
-  for (i = 0; i < notebook.getNotes().length; i++) {
-    document.getElementById(i).addEventListener("click", () => {
-    console.log(i);
-    });
-  }
+
 
   function emojify(text, index) {
     fetch("https://makers-emojify.herokuapp.com", {
@@ -47,14 +52,12 @@ document.addEventListener("DOMContentLoaded", () => {
         li = document.createElement('li')
         li.setAttribute('id', index)
         li.innerHTML = text.emojified_text.substring(0,20);
-        console.log(text.emojified_text.substring(0,20))
         // small bug sometimes cuts emojis in half (they are of length 2)
         document.getElementById("notesList").appendChild(li)
+        openNotes()
       })
       .catch((error) => {
         console.error("Error:", error);
       });
   }
 });
-
-
