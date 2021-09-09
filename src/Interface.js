@@ -40,7 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((text) => {
         li = document.createElement('li')
         li.setAttribute('id', index)
-        li.innerHTML = text.emojified_text;
+        li.innerHTML = text.emojified_text.substring(0,20);
+        console.log(text.emojified_text.substring(0,20))
+        // small bug sometimes cuts emojis in half (they are of length 2)
         document.getElementById("notesList").appendChild(li)
       })
       .catch((error) => {
