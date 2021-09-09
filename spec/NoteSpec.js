@@ -3,18 +3,15 @@
 let note;
 note = new Note();
 
-// starts with empty string property
-expectToEqual(note.getText(), "");
+expectToEqual(note.getText(), "", "starts with empty string property");
 
-// getText returns text property
-expectToEqual(note.getText(), note.text)
+expectToEqual(note.getText(), note.text, "getText returns text property")
 
-// addText should require at least 1 character
 expectToThrowError(() => { 
   note.addText("");
-});
+}, "addText should require at least 1 character");
 
-// addText should have max 1000 character
+// 
   let testText = ""
   for (let i = 0; i < 100; i++) {
     testText += "abcdefghij";
@@ -22,18 +19,16 @@ expectToThrowError(() => {
 
 expectNotToThrowError(() => { 
   note.addText(testText)
-})
+}, "addText should have max 1000 character")
 
-// addText should accept text between 1-1000 characters
 expectNotToThrowError(() => { 
   note.addText("a");
-});
+}, "addText should accept text between 1-1000 characters");
 
 expectNotToThrowError(() => { 
   note.addText("testtesttesttesttesttesttesttesttesttesttesttesttesttesttest");
-});
+}, "addText should accept text between 1-1000 characters");
 
-// addText should only accept strings
 expectToThrowError(() => {
   note.addText(4);
-});
+}, "addText should only accept strings");

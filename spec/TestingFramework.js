@@ -1,33 +1,41 @@
 "use strict";
 
-function expectToEqual(actual, expected) {
-  console.log(actual === expected ? "pass" : "you shall not pass");
+function expectToEqual(actual, expected, message) {
+  console.log(message);
+  actual === expected ? 
+  console.log("%c pass", 'background: #222; color: #32cd32') :
+  console.log("%c you shall not pass", 'background: #222; color: #ff3131');
 }
 
-function expectNotToEqual(actual, expected) {
-  console.log(actual !== expected ? "pass" : "you shall not pass");
+function expectNotToEqual(actual, expected, message) {
+  console.log(message);
+  actual !== expected ? 
+  console.log("%c pass", 'background: #222; color: #32cd32') :
+  console.log("%c you shall not pass", 'background: #222; color: #ff3131');
 }
 
-function expectToThrowError(actual) {
+function expectToThrowError(actual, message) {
+  console.log(message);
   let errorStatus = false;
   try {
     actual();
   } catch (error) {
     errorStatus = true;
   }
-  console.log(
-    errorStatus === true ? "pass: error thrown" : "nobody tosses a dwarf/error"
-  );
+    errorStatus === true ? 
+    console.log("%c pass: error not thrown", 'background: #222; color: #32cd32') : 
+    console.log("%c nobody tosses a dwarf/error", 'background: #222; color: #ff3131');
 }
 
-function expectNotToThrowError(actual) {
+function expectNotToThrowError(actual, message) {
+  console.log(message);
   let errorStatus = false;
   try {
     actual();
   } catch (error) {
     errorStatus = true;
   }
-  console.log(
-    errorStatus === false ? "pass: error not thrown" : "fail: error thrown"
-  );
+    errorStatus === false ? 
+    console.log("%c pass: error not thrown", 'background: #222; color: #32cd32') :
+    console.log("%c fail: error thrown", 'background: #222; color: #ff3131');
 }
