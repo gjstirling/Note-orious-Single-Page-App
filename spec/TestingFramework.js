@@ -1,14 +1,17 @@
 "use strict";
 
-function expectToEqual(actual, expected) {
+function expectToEqual(actual, expected, message) {
+  console.log(message);
   console.log(actual === expected ? "pass" : "you shall not pass");
 }
 
-function expectNotToEqual(actual, expected) {
+function expectNotToEqual(actual, expected, message) {
+  console.log(message);
   console.log(actual !== expected ? "pass" : "you shall not pass");
 }
 
-function expectToThrowError(actual) {
+function expectToThrowError(actual, message) {
+  console.log(message);
   let errorStatus = false;
   try {
     actual();
@@ -20,7 +23,8 @@ function expectToThrowError(actual) {
   );
 }
 
-function expectNotToThrowError(actual) {
+function expectNotToThrowError(actual, message) {
+  console.log(message);
   let errorStatus = false;
   try {
     actual();
