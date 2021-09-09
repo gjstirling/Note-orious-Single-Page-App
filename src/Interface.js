@@ -28,6 +28,12 @@ document.addEventListener("DOMContentLoaded", () => {
     updateNotes();
   });
 
+  for (i = 0; i < notebook.getNotes().length; i++) {
+    document.getElementById(i).addEventListener("click", () => {
+    console.log(i);
+    });
+  }
+
   function emojify(text, index) {
     fetch("https://makers-emojify.herokuapp.com", {
       method: "POST",
