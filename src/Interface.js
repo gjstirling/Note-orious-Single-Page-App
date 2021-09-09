@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   getStorage = (storage) => {
-    // const storage = window.localStorage.getItem("stringifiedNotes");
     const parsedStorage = JSON.parse(storage);
     parsedStorage.forEach((element) => {
       newNote(element.text);
@@ -8,10 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   updateNotes = () => {
-    const stringifiedNotes = JSON.stringify(notebook.getNotes());
-    window.localStorage.setItem("stringifiedNotes", stringifiedNotes);
-    // console.log(window.localStorage.getItem("stringifiedNotes"));
+    const storedNotes = JSON.stringify(notebook.getNotes());
+    window.localStorage.setItem("storedNotes", storedNotes);
+    showNotes();
+  }
 
+  showNotes = () => {
     document.querySelector("#notesList").innerText = notebook.getNotes();
   };
 
@@ -21,9 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
     notebook.addNote(note);
   };
 
-  // on every page load.
   const notebook = new Notebook();
-  const storage = window.localStorage.getItem("stringifiedNotes");
+  const storage = window.localStorage.getItem("storedNotes");
   if (storage && storage.length) {
     getStorage(storage);
   }
