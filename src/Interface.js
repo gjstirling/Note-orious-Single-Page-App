@@ -1,25 +1,34 @@
 document.addEventListener("DOMContentLoaded", () => {
+  getStorage = storage => {
+
+  }
+
   updateNotes = () => {
+    const stringifiedNotes = JSON.stringify(notebook.getNotes());
+    window.localStorage.setItem("notes", stringifiedNotes);
     document.querySelector("#notesList").innerText = notebook.getNotes();
   };
 
+  updateStorage = () => {
+    window.localStorage.setItem("stringifiedNotes", notebook.getNotes())
+  }
+
+  newNote = text => {
+    const note = new Note();
+    note.addText(text);
+    notebook.addNote(note);
+  }
+
+  // on every page load.
   const notebook = new Notebook();
-
-  // on page load check if anything in storage?
-  // if so: give it to page - process storage string and give it to updateNotes()
-
-  // processing the storage string - if it is a notebook string?
-  // iterate over each hash in the string - extract the text, id whatever
-  // push each 'element' using note.addText(newNote) --> notebook.addNote
-
-  // if not ?
+  getStorage();
+  updateNotes();  
 
   document.querySelector("#addNote").addEventListener("click", () => {
-    const newNote = document.getElementById("notepad").value;
-    const note = new Note();
-    note.addText(newNote);
-    notebook.addNote(note);
+    const text = document.getElementById("notepad").value;
+    newNote(text);
     document.getElementById("notepad").value = "";
+    updateStorage();
     updateNotes();
   });
 });
