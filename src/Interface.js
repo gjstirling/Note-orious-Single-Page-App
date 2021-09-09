@@ -2,15 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const notebook = new Notebook();
 
   const updateNotes = () => {
-    // get notes text in reverse
-    // for each note, emojify and truncate
-    // for each note, display as list item with id]
-    // document.getElementById("notesList").innerHTML = ""
-      console.log(document.getElementById("notesList").children)
-    while (document.getElementById("notesList").firstChild) {
-      document.getElementById("notesList").removeChild(document.getElementById("notesList").firstChild);
-  }
-  console.log(document.getElementById("notesList").children)
+    document.getElementById("notesList").innerHTML = ''
     notebook.getNotes().forEach((element, index) => {
       let li;
       emojify(element.getText(), index)
@@ -31,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const newNote = document.getElementById("notepad").value;
     const note = new Note();
     note.addText(newNote);
-
     notebook.addNote(note);
     document.getElementById("notepad").value = "";
     updateNotes();
