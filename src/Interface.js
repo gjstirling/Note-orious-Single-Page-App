@@ -23,7 +23,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const openNotes = () => {
     document.querySelectorAll('li').forEach(item => { 
       item.addEventListener("click", () => {
-        console.log(notebook.getNotes()[item.getAttribute('id')].getText());
+        document.getElementById('main').innerHTML = 
+        notebook.getNotes()[item.getAttribute('id')].getText();
+        document.getElementById('main').appendChild(document.createElement('button'));
+        button.setAttribute()
+        li = document.createElement('li')
+        li.setAttribute('id', 'return')
       })
     })
   };
@@ -36,8 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("notepad").value = "";
     updateNotes();
   });
-
-
 
   function emojify(text, index) {
     fetch("https://makers-emojify.herokuapp.com", {
