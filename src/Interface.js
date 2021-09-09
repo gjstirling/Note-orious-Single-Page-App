@@ -1,34 +1,38 @@
 document.addEventListener("DOMContentLoaded", () => {
-  getStorage = storage => {
-
-  }
+  getStorage = (storage) => {
+    // const storage = window.localStorage.getItem("stringifiedNotes");
+    const parsedStorage = JSON.parse(storage);
+    parsedStorage.forEach((element) => {
+      newNote(element.text);
+    });
+  };
 
   updateNotes = () => {
     const stringifiedNotes = JSON.stringify(notebook.getNotes());
-    window.localStorage.setItem("notes", stringifiedNotes);
+    window.localStorage.setItem("stringifiedNotes", stringifiedNotes);
+    // console.log(window.localStorage.getItem("stringifiedNotes"));
+
     document.querySelector("#notesList").innerText = notebook.getNotes();
   };
 
-  updateStorage = () => {
-    window.localStorage.setItem("stringifiedNotes", notebook.getNotes())
-  }
-
-  newNote = text => {
+  newNote = (text) => {
     const note = new Note();
     note.addText(text);
     notebook.addNote(note);
-  }
+  };
 
   // on every page load.
   const notebook = new Notebook();
-  getStorage();
-  updateNotes();  
+  const storage = window.localStorage.getItem("stringifiedNotes");
+  if (storage && storage.length) {
+    getStorage(storage);
+  }
+  updateNotes();
 
   document.querySelector("#addNote").addEventListener("click", () => {
     const text = document.getElementById("notepad").value;
     newNote(text);
     document.getElementById("notepad").value = "";
-    updateStorage();
     updateNotes();
   });
 });
