@@ -19,7 +19,7 @@ npm install --global http-server
 
 To run server:
 ```
-http-server
+http-server ./
 ```
 
 Visit page: 
