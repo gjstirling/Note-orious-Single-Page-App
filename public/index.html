@@ -1,37 +1,32 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
   <head>
-  <title> Note-orious </title>
-  <link rel="stylesheet" href="./public/styles.css">
+    <title> Note-orious </title>
+    <link rel="stylesheet" href="./public/styles.css">
   </head>
-  
+
   <body>
-      <section id='main'>
-      <h1> Note-orious </h1>
-
-        <h2>Create a note</h2>
-        <textarea style="resize:none" maxlength="1000" id="notepad" 
-        name="notepad" rows="10" cols="100" placeholder="Scribble here!"></textarea>
-        <br>
-        
+    <section id='main'>
+      <img id="title-img" src="./public/noteorious.png" alt="Note-orious" />
+      <textarea style="resize:none" maxlength="1000" id="notepad" 
+      name="notepad" rows="10" cols="100" placeholder="Scribble here!"></textarea>
+      <div id="center-left">
         <button value="submit" id="addNote" action="">Add note</button>
-        
         <h2>Your notes</h2>
-        <div>
-          <ul class='notesList' id='notesList'></ul>
-        </div>
-      </section>
+        <ul class='notesList' id='notesList'></ul>
+      </div>
+    </section>
 
-      <section id='individualNote'>
-        <div><p id='textHere'></p></div>
-        <div id='buttonHere'>
-          <button id="return" action="">Return to notes</button>
-        </div>
-      </section>
+    <section id='individualNote'>
+      <p id='textHere'></p>
+      <div id='buttonHere'>
+        <button id="return" action="">Return to notes</button>
+      </div>
+    </section>
 
-      <script src="./src/interface.js"></script>
-      <script src="./src/note.js"></script>
-      <script src="./src/notebook.js"></script>
-    </body>
+    <script src="./src/interface.js"></script>
+    <script src="./src/note.js"></script>
+    <script src="./src/notebook.js"></script>
+  </body>
   </html>
+ 

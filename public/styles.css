@@ -1,15 +1,85 @@
-/* .notesList {
-  white-space: nowrap; 
-  width: 20ch; 
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-family: monospace;
-  font-size: 16px;
+body {
+  background-image: url(../public/paper.jpeg);
+  background-repeat:repeat;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h2 {
+  font-size: 48px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 12px 0 24px;
+}
+
+textarea {
   display: block;
-  list-style-type: disc;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  padding-inline-start: 40px;
-} */
+  font-size: 28px;
+  height: 250px;
+  width: 70%;
+  margin: 0 auto;
+}
+button {
+  display: inline-block;
+  margin: 24px 0;
+  padding: 10px 18px;
+  background: #383a3b;
+  border-radius: 12px;
+  color: #e1e6da;
+  font-size: 20px;
+}
+
+button:hover {
+  background: #7c8d99;
+}
+
+ul { 
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li, p {
+  height: 32px;
+  font-size: 32px;
+  padding: 4px 0;
+}
+
+li:hover {
+  background-color: rgb(208, 208, 211);
+  border-radius: 12px;
+}
+
+#title-img {
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+  padding: 48px 0;
+}
+
+#individualNote {
+  padding: 48px;
+}
+
+#return {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+}
+
+#center-left {
+  display: block;
+  text-align: left;
+  margin: 0 auto; 
+  width: 70%;
+  text-align: left;
+}
+
+@media screen and (max-width: 600px) {
+  #title-img {
+    width: 85%;
+    height: 85%;
+  }
+
+  textarea, li, p {
+    font-size: 20px;
+  }
+}
