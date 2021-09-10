@@ -1,11 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const notebook = new Notebook();
-  const storage = window.localStorage.getItem("storedNotes");
-  if (storage && storage.length) {
-    getStorage(storage);
-  }
-  document.getElementById("return").style.display = "none"
-
   const updateNotes = () => {
     let li;
     let lastNote;
@@ -47,14 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     note.addText(text);
     notebook.addNote(note);
   }
-  
-  document.querySelector("#addNote").addEventListener("click", () => {
-    const text = document.getElementById("notepad").value;
-    newNote(text);
-    document.getElementById("notepad").value = "";
-    updateNotes();
-  });
-  
+
   function emojify(text, index) {
     fetch("https://makers-emojify.herokuapp.com", {
       method: "POST",
@@ -78,4 +64,18 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Error:", error);
       });
   }
+
+  const notebook = new Notebook();
+  const storage = window.localStorage.getItem("storedNotes");
+  if (storage && storage.length) {
+    getStorage(storage);
+  }
+  document.getElementById("return").style.display = "none"
+  
+  document.querySelector("#addNote").addEventListener("click", () => {
+    const text = document.getElementById("notepad").value;
+    newNote(text);
+    document.getElementById("notepad").value = "";
+    updateNotes();
+  });
 });
