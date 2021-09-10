@@ -3,7 +3,10 @@
   <head>
     <title> Note-orious </title>
     <link rel="stylesheet" href="./public/styles.css">
-  </head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&family=Shrikhand&display=swap" rel="stylesheet">
+    </head>
 
   <body>
     <section id='main'>
@@ -11,7 +14,7 @@
       <textarea style="resize:none" maxlength="1000" id="notepad" 
       name="notepad" rows="10" cols="100" placeholder="Scribble here!"></textarea>
       <div id="center-left">
-        <button value="submit" id="addNote" action="">Add note</button>
+        <button value="submit" id="addNote" action=""><span>Add note </span></button>
         <h2>Your notes</h2>
         <ul class='notesList' id='notesList'></ul>
       </div>
@@ -20,7 +23,7 @@
     <section id='individualNote'>
       <p id='textHere'></p>
       <div id='buttonHere'>
-        <button id="return" action="">Return to notes</button>
+        <button id="return" action=""><span>Return to notes</span></button>
       </div>
     </section>
 
