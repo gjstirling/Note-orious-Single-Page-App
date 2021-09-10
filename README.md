@@ -27,6 +27,17 @@ Visit page:
 open http://127.0.0.1:8080
 ```
 
+
+---
+
+## Running the tests
+
+Open ```specRunner.html``` in your browser. 
+Follow the on screen instructions.  
+
+---
+
+
 ## User Stories 
 ```
 As a programmer

@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   const notebook = new Notebook();
+  const storage = window.localStorage.getItem("storedNotes");
+  if (storage && storage.length) {
+    getStorage(storage);
+  }
   document.getElementById("return").style.display = "none"
 
   const updateNotes = () => {
@@ -7,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let lastNote;
     lastNote = notebook.getNotes()[notebook.getNotes().length - 1]
     emojify(lastNote.getText(), notebook.getNotes().indexOf(lastNote))
+    
   };
 
   function openNotes() {
@@ -24,15 +29,32 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   };
 
-  document.querySelector("#addNote").addEventListener("click", () => {
-    const newNote = document.getElementById("notepad").value;
+  getStorage = (storage) => {
+    const parsedStorage = JSON.parse(storage);
+    parsedStorage.forEach((element) => {
+      newNote(element.text);
+      updateNotes();
+    });
+  };
+
+  replaceLocalStorage = () => {
+    const storedNotes = JSON.stringify(notebook.getNotes());
+    window.localStorage.setItem("storedNotes", storedNotes);
+  }
+
+  newNote = (text) => {
     const note = new Note();
-    note.addText(newNote);
+    note.addText(text);
     notebook.addNote(note);
+  }
+  
+  document.querySelector("#addNote").addEventListener("click", () => {
+    const text = document.getElementById("notepad").value;
+    newNote(text);
     document.getElementById("notepad").value = "";
     updateNotes();
   });
-
+  
   function emojify(text, index) {
     fetch("https://makers-emojify.herokuapp.com", {
       method: "POST",
@@ -50,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // small bug sometimes cuts emojis in half (they are of length 2)
         document.getElementById("notesList").insertBefore(li, document.getElementById("notesList").firstChild);
           openNotes(text.emojified_text)
+      replaceLocalStorage()
       })
       .catch((error) => {
         console.error("Error:", error);

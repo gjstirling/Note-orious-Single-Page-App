@@ -3,32 +3,26 @@
 let notebook;
 notebook = new Notebook();
 
-// starts with an array of notes
-expectToEqual(Array.isArray(notebook.getNotes()), true)
+expectToEqual(Array.isArray(notebook.getNotes()), true, "starts with an array of notes")
 
-// starts with an empty array of notes
-expectToEqual(notebook.getNotes().length, 0)
+expectToEqual(notebook.getNotes().length, 0, "starts with an empty array of notes")
 
-// add notes
 const note1 = new Note();
 notebook.addNote(note1);
 notebook.addNote(note1);
 
-// addNote only accepts a Note instance as an argument
 expectNotToThrowError(() => {
   notebook.addNote(note1);
-})
+}, "addNote only accepts a Note instance as an argument")
 
 expectToThrowError(() => {
   notebook.addNote(4);
-})
+}, "addNote only accepts a Note instance as an argument")
 
 expectToThrowError(() => {
   notebook.addNote("And my axe!");
-})
+}, "addNote only accepts a Note instance as an argument")
 
-// addNote pushes to notes
-expectToEqual(notebook.getNotes().length, 3);
+expectToEqual(notebook.getNotes().length, 3, "addNote pushes to notes");
 
-// getNotes returns the notes
-expectToEqual(notebook.getNotes(), notebook.notes);
+expectToEqual(notebook.getNotes(), notebook.notes, "getNotes returns the notes");
