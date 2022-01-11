@@ -16,6 +16,7 @@ textarea {
   height: 250px;
   width: 70%;
   margin: 0 auto;
+  padding: 12px;
   font-family: 'Reenie Beanie';
 }
 button {
