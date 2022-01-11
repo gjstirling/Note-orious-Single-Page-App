@@ -1,6 +1,8 @@
 # Note-orious App 
 
-This is a single page web app built using pure Javascript.
+This is a single page web app built using pure Javascript. See a demo [here](https://www.loom.com/share/fede8da5193943b19c0921e4677eeb4b).
+
+<img alt="Homepage" src="images/Homepage.png" width="500" height="500">
 
 ## Installation instructions 
 
